@@ -1,0 +1,6 @@
+name = input()
+parts = name.split()
+initials = ''.join(p[0] for p in parts)
+clean_name = ' '.join(parts)
+print(f"Инициалы: {initials}")
+print(f"Длина: {len(clean_name)}")
