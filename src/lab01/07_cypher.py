@@ -1,4 +1,4 @@
-s = input()
+s = input("in: ")
 first, second = 0, 0
 for i in range(len(s)):
     if s[i].isupper():
@@ -19,4 +19,4 @@ for i in range(first, len(s), dist):
     if s[i] == ".":
         break
     
-print(res)
+print("out:", res)
