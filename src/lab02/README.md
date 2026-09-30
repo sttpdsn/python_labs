@@ -1,7 +1,7 @@
 # ЛР2 — Коллекции и матрицы
 ## arrays.py
 ### min_max
-```
+```python
 def min_max(nums: list[float | int]) -> tuple[float | int, float | int]:
     if not nums:
         raise ValueError("Список не должен быть пустым")
@@ -20,7 +20,7 @@ def min_max(nums: list[float | int]) -> tuple[float | int, float | int]:
 ![Пример работы функции](/images/lab02/min_max.png)
 
 ### unique_sorted
-```
+```python
 def unique_sorted(nums: list[float | int]) -> list[float | int]:
     for num in nums:
       if not isinstance(num, (int, float)):
@@ -39,7 +39,7 @@ def unique_sorted(nums: list[float | int]) -> list[float | int]:
 ![Пример работы функции unique_sorted](/images/lab02/unique_sorted.png)
 
 ### flatten
-```
+```python
 def flatten(mat: list[list | tuple]) -> list:
     result = []
     for row in mat:
@@ -54,7 +54,7 @@ def flatten(mat: list[list | tuple]) -> list:
 
 ## matrix.py
 ### transpose
-```
+```python
 def transpose(mat: list[list[float | int]]) -> list[list]:
     check_matrix(mat)
 
@@ -74,7 +74,7 @@ def transpose(mat: list[list[float | int]]) -> list[list]:
 ![Пример работы функции transpose](/images/lab02/transpose.png)
 
 ### row_sums
-```
+```python
 def row_sums(mat: list[list[float | int]]) -> list[float]:
     check_matrix(mat)
     return [sum(row) for row in mat]
@@ -83,7 +83,7 @@ def row_sums(mat: list[list[float | int]]) -> list[float]:
 ![Пример работы функции row_sums](/images/lab02/row_sums.png)
 
 ### col_sums
-```
+```python
 def col_sums(mat: list[list[float | int]]) -> list[float]:
     return row_sums(transpose(mat))
 ```
@@ -92,7 +92,7 @@ def col_sums(mat: list[list[float | int]]) -> list[float]:
 
 ## tuples.py
 ### format_record
-```
+```python
 def format_record(rec: tuple[str, str, float]) -> str:
     if not isinstance(rec, tuple):
         raise TypeError("Запись должна быть кортежем")
