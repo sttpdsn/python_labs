@@ -1,19 +1,21 @@
-from pathlib import Path
 import csv
-from typing import Iterable, Sequence
+from pathlib import Path
+
 
 def read_text(path: str | Path, encoding: str = "utf-8") -> str:
-    p = Path(path)
-    return p.read_text(encoding=encoding)
+    return Path(path).read_text(encoding=encoding)
 
-def write_csv(rows: Iterable[Sequence], path: str | Path,
-              header: tuple[str, ...] | None = None) -> None:
-    p = Path(path)
-    rows = list(rows)
-    with p.open("w", newline="", encoding="utf-8") as f:
-        w = csv.writer(f)
+
+def write_csv(
+    rows: list[tuple | list],
+    path: str | Path,
+    header: tuple[str, ...] | None = None,
+) -> None:
+    width = len(header) if header is not None else (len(rows[0]) if rows else 0)
+    if any(len(row) != width for row in rows):
+        raise ValueError("Все строки CSV и заголовок должны иметь одинаковую длину")
+    with Path(path).open("w", newline="", encoding="utf-8") as file:
+        writer = csv.writer(file, delimiter=",")
         if header is not None:
-            w.writerow(header)
-        for r in rows:
-            w.writerow(r)
-
+            writer.writerow(header)
+        writer.writerows(rows)
