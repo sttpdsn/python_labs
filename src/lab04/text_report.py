@@ -18,7 +18,7 @@ def main(argv: list[str] | None = None) -> int:
         text_freqs = count_freq(tokenize(normalize(text)))
         text_top = top_n(text_freqs, len(text_freqs))
         write_csv(text_top, args.output_path, ("word", "count"))
-    except (OSError, UnicodeError, LookupError, FileNotFoundError, UnicodeDecodeError) as error:
+    except (OSError, UnicodeError, LookupError) as error:
         print(f"Ошибка: {error}")
         sys.exit(1)
 
