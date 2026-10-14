@@ -1,4 +1,4 @@
-from text import count_freq, normalize, tokenize, top_n
+from src.lib.text import count_freq, normalize, tokenize, top_n
 import sys
 
 def main() -> None:
