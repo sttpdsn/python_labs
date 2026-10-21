@@ -42,7 +42,7 @@ def csv_to_json(csv_path: str, json_path: str) -> None:
         raise ValueError("Выходной файл должен быть JSON")
 
     with source.open(newline="", encoding="utf-8") as f:
-        reader = csv.DictReader(f, restval="")
+        reader = csv.DictReader(f)
 
         if not reader.fieldnames:
             raise ValueError("В CSV нет заголовка")
@@ -52,5 +52,5 @@ def csv_to_json(csv_path: str, json_path: str) -> None:
     if len(rows) == 0:
         raise ValueError("В CSV нет данных")
 
-    with Path(json_path).open("w", encoding="utf-8") as f:
+    with target.open("w", encoding="utf-8") as f:
         json.dump(rows, f, ensure_ascii=False, indent=1)
