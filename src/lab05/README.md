@@ -11,7 +11,7 @@ json_to_csv("data/samples/people_empty.json", "data/out/people_empty_from_json.c
 ## Сценарий 2: CSV -> JSON
 ```python
 csv_to_json("data/samples/people.csv", "data/out/people_from_csv.json")
-csv_to_json("data/samples/people.csv", "data/out/people_from_csv.json")
+csv_to_json("data/samples/people_empty.csv", "data/out/people_empty_from_csv.json")
 ```
 Функция проверяет наличие входного файла, расширения путей, заголовок и наличие данных, затем читает CSV как список словарей, где ключи — названия столбцов, а значения — строки. Полученный список сохраняется в JSON в кодировке UTF-8 с сохранением кириллицы и отступами.
 ![пример](/images/lab05/people_from_csv.png)
