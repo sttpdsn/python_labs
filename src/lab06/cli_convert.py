@@ -4,11 +4,11 @@ from src.lab05.csv_xlsx import csv_to_xlsx
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Конвертеры данных")
-    sub = parser.add_subparsers(dest="command")
+    sub = parser.add_subparsers(dest="command", required=True)
 
     p1 = sub.add_parser("json2csv", help="Конвертация из JSON в CSV")
     p1.add_argument("--in", dest="input", required=True, help="Входной файл")
-    p1.add_argument("--out", dest="output", required=True)
+    p1.add_argument("--out", dest="output", required=True, help="Выходной файл")
 
     p2 = sub.add_parser("csv2json", help="Конвертация из CSV в JSON")
     p2.add_argument("--in", dest="input", required=True, help="Входной файл")

@@ -1,5 +1,5 @@
 import argparse
-from lib.text import *
+from src.lib.text import normalize, tokenize, count_freq, top_n
 
 
 def main(argv=None):
@@ -12,14 +12,14 @@ def main(argv=None):
 
     stats_parser = subparsers.add_parser("stats", help="Вывести топ слов по частоте")
     stats_parser.add_argument("--input", required=True, help="Входной файл")
-    stats_parser.add_argument("--top", default=5, help="Количество слов (по умолчанию: 5)")
+    stats_parser.add_argument("--top", type=int, default=5, help="Количество слов (по умолчанию: 5)")
 
     args = parser.parse_args(argv)
     if args.command == "stats" and args.top <= 0:
         parser.error("--top должен быть положительным целым числом")
 
     try:
-        with args.input.open(encoding="utf-8") as file:
+        with open(args.input, encoding="utf-8") as file:
             if args.command == "cat":
                 for number, line in enumerate(file, start=1):
                     if args.n:
