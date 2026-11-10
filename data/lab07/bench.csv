@@ -1,0 +1,20 @@
+task,n,impl,seconds
+sort,1000,bubble_sort,0.01491716699092649
+sort,1000,insertion_sort,0.005440708016976714
+sort,1000,selection_sort,0.007021875004284084
+sort,1000,sorted,5.383300594985485e-05
+sort,10000,bubble_sort,1.5788370830123313
+sort,10000,insertion_sort,0.5760396670084447
+sort,10000,selection_sort,0.6536908329871949
+sort,10000,sorted,0.0006864579918328673
+sort,100000,bubble_sort,пропуск: O(n**2)
+sort,100000,insertion_sort,пропуск: O(n**2)
+sort,100000,selection_sort,пропуск: O(n**2)
+sort,100000,sorted,0.008357958984561265
+search,100000,sorted (подготовка),0.00853254200774245
+search,100000,linear_search,10.370767832995625
+search,100000,binary_search,0.0076042499858886
+two_sum,1000,two_sum_brute,0.009816542005864903
+two_sum,1000,two_sum_fast,6.258301436901093e-05
+two_sum,10000,two_sum_brute,0.9265740840055514
+two_sum,10000,two_sum_fast,0.0005867920117452741
