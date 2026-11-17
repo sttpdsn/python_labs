@@ -10,18 +10,25 @@ def students_to_json(students, path):
 
 
 def students_from_json(path):
-    """Прочитать JSON-массив; при ошибке указать номер записи, начиная с 1."""
+    """Прочитать JSON-массив; собрать ошибки с номерами записей."""
     with open(path, encoding="utf-8") as file:
         data = json.load(file)
+
     if not isinstance(data, list):
         raise ValueError("JSON должен содержать массив записей студентов")
 
     students = []
+    errors = []
+
     for number, record in enumerate(data, start=1):
         try:
             students.append(student_from_dict(record))
         except ValueError as exc:
-            raise ValueError(f"Запись {number}: {exc}")
+            errors.append(f"Запись {number}: {exc}")
+
+    if errors:
+        raise ValueError("\n".join(errors))
+
     return students
 
 
